@@ -1,0 +1,11 @@
+#pai {
+  background: lightpink;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.caixa {
+  background: lightgreen;
+  height: 200px;
+}

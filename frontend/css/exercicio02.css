@@ -1,0 +1,73 @@
+body {
+  background: linear-gradient(180deg, #febe01, #000);
+  background-attachment: fixed;
+}
+
+h1 {
+  width: 1887px;
+  height: 80px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 70px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.item h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  color: white;
+}
+
+hr {
+  background: black;
+  width: 50%;
+  height: 10px;
+  border: none;
+}
+
+.item {
+  width: 50%;
+  background: black;
+  border-radius: 5px;
+  margin: 20px auto;
+  padding: 30px;
+}
+
+.item p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: #b2b2b2;
+  margin: 20px auto;
+}
+
+.item h2 span {
+  color: #febe01;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.item p span {
+  color: #febe01;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.item a {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+  font-weight: 700;
+  background: #febe01;
+  color: black;
+  border-radius: 5px;
+  padding: 10px;
+  text-decoration: none;
+  display: inline-block;
+  border: 1px solid transparent;
+}
+
+.item a:hover {
+  background: #000;
+  color: #febe01;
+  border: 1px solid #febe01;
+}

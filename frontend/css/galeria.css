@@ -1,0 +1,42 @@
+/* Normalização */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, lightblue, lightgreen);
+}
+
+.polaroid img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.polaroid {
+  background: white;
+  padding: 15px 15px 40px 15px;
+  /* o padding tem sentido horário (cima, direita, baixo, esquerda)*/
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.253);
+  /* parametros: afasta na vertical, afasta na horizontal, blur, cor */
+  border-radius: 2%;
+}
+
+.container {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  /* gap afasta os grids uns dos outros */
+  margin: 40px;
+  /* margin afasta o grid das bordas */
+  padding: 10px;
+  /* padding dá uma afastada interna */
+}
+
+.polaroid h2 {
+  margin-bottom: 7px;
+  /* afasta em 7px o H2 do P */
+}

@@ -1,0 +1,105 @@
+/*Normalização*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* barra de rolagem suave */
+  scroll-behavior: smooth;
+  scroll-padding-top: 200px;
+}
+
+body {
+  margin-top: 200px;
+}
+
+img {
+  max-width: 100%;
+}
+
+#teste {
+  width: 800px;
+  border: 1px solid black;
+  /* margin você afasta as divs umas das outras */
+  margin: 100px auto;
+  /* padding você afasta o conteúdo das divs das bordas */
+  padding: 40px;
+  background: lightsteelblue;
+  /* o "position: relative" serve para definir como pai de todos os elementos absolutos dentro da div */
+  position: relative;
+}
+
+#teste p {
+  font-size: 40px;
+  font-weight: 600;
+  font-style: italic;
+}
+
+#teste span {
+  background: rgba(255, 0, 0, 0.5);
+  padding: 20px 40px;
+  color: white;
+  font-weight: 700;
+  position: absolute;
+  top: -30px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.topo {
+  display: flex;
+  position: fixed;
+  justify-content: space-around;
+  width: 100%;
+  height: 150px;
+  background: rgb(25, 25, 25);
+  top: 0;
+  z-index: 1;
+}
+
+.topo section {
+  width: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.topo nav {
+  width: 65%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.topo section img {
+  width: 30%;
+}
+
+.topo nav ul {
+  display: flex;
+  list-style-type: none;
+  gap: 20px;
+}
+
+.topo nav ul li {
+  background: orange;
+  padding: 20px 40px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.topo nav ul li:hover {
+  /*pseudo-class para trocar as cores ao passar o mouse sobre o botão*/
+  background: white;
+  color: orange;
+}
+
+.setatopo {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  /* definir tamanho da imagem */
+  width: 50px;
+}
