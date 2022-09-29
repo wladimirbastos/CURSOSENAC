@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+include_once "conexao.php";
 
 if(isset($_SESSION['login']) and isset($_SESSION['senha'])){
 
@@ -12,10 +13,8 @@ $login = ucfirst($_SESSION['login']);
   unset($_SESSION['senha']);
 }
 
-
-
-
-
+$sql = "SELECT * FROM alunos ORDER BY nome ASC";
+$resultado = $conexao->query($sql);
 
 ?>
 
@@ -54,10 +53,15 @@ $login = ucfirst($_SESSION['login']);
       background: rgba(0, 0, 0, 0.5);
       border-radius: 10px;
       padding: 20px;
-      width: 600px;
+      width: auto;
       display: flex;
       justify-content: space-around;
+      color: white;
     }
+
+.table{
+  color: white;
+}
 
     main {
       display: flex;
@@ -77,12 +81,44 @@ $login = ucfirst($_SESSION['login']);
   echo "Bem vindo ".$login;  
   ?>
   </h1>
-    <button class="btn btn-danger">SAIR</button>
+    <a href="sair.php"><button class="btn btn-danger">SAIR</button></a>
     
   </header>
   <main>
     <section class="box">
-      <h1>🚧 AGUARDE! O SISTEMA ESTÁ EM CONSTRUÇÃO 🚧</h1>
+          <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <!-- <th scope="col">Id</th> -->
+            <th scope="col">Nome</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Serie</th>
+            <th scope="col">Matricula</th>
+            <th scope="col">Nascimento</th>
+            <th scope="col">Escolaridade</th>
+            <th scope="col">Telefone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          while($alunos = mysqli_fetch_assoc($resultado)){
+            echo "<tr>";
+            // echo "<td>".$alunos['id']."</td>";
+            echo "<td>".ucfirst($alunos['nome'])."</td>";
+            echo "<td>".$alunos['email']."</td>";
+            echo "<td>".$alunos['serie']."</td>";
+            echo "<td>".$alunos['matricula']."</td>";
+            echo "<td>".$alunos['data_nasc']."</td>";
+            echo "<td>".$alunos['escolaridade']."</td>";
+            echo "<td>".$alunos['telefone']."</td>";
+            echo "</tr>";
+          }
+          
+          
+          ?>
+
+        </tbody>
+      </table>
     </section>
   </main>
 </body>
