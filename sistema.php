@@ -13,7 +13,13 @@ $login = ucfirst($_SESSION['login']);
   unset($_SESSION['senha']);
 }
 
-$sql = "SELECT * FROM alunos ORDER BY nome ASC";
+if(!empty($_GET["search"])){
+  $search = $_GET["search"];
+  $sql = "SELECT * FROM alunos WHERE nome LIKE '%$search%' ORDER BY nome ASC";
+}else{
+  $sql = "SELECT * FROM alunos ORDER BY nome ASC";
+}
+
 $resultado = $conexao->query($sql);
 
 ?>
@@ -35,10 +41,14 @@ $resultado = $conexao->query($sql);
     header h1{
       font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
       font-weight: 600;
-      color: yellow;
-      margin-right: 500px;
+      color: goldenrod;
+      /* margin-right: 500px; */
     }
+header form{
+  display: flex;
+  gap: 2px;
 
+}
     .topo {
       color: white;
       padding: 5px 20px;
@@ -81,6 +91,14 @@ $resultado = $conexao->query($sql);
   echo "Bem vindo ".$login;  
   ?>
   </h1>
+
+  <div>
+  <form class="form-inline" action="sistema.php" method="GET">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+    <button class="btn btn-warning my-2 my-sm-0" type="submit" name="submit">Search</button>
+  </form>
+</div>
+
     <a href="sair.php"><button class="btn btn-danger">SAIR</button></a>
     
   </header>
