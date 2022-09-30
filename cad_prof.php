@@ -54,6 +54,9 @@ if(isset($_POST["submit"])){
 
 <main>
   <section class="box">
+    <a href="listagem_prof.php" method="POST">
+      <div>Listagem de professores</div>
+    </a>
   <form action="cad_prof.php" method="POST">
   <div class="row mb-3">
     <label for="nome" class="col-sm-2 col-form-label">Nome</label>
