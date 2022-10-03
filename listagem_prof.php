@@ -3,7 +3,13 @@
 session_start();
 include_once "conexao.php";
 
-$sql = "SELECT * FROM professores ORDER BY nome ASC";
+if(!empty($_GET["search"])){
+  $search = $_GET["search"];
+  $sql = "SELECT * FROM professores WHERE nome LIKE '%$search%' ORDER BY nome ASC";
+}else{
+  $sql = "SELECT * FROM professores ORDER BY nome ASC";
+}
+
 $resultado = $conexao->query($sql);
 
 ?>
@@ -31,6 +37,8 @@ $resultado = $conexao->query($sql);
     .topo {
       color: white;
       padding: 5px 20px;
+      display: flex;
+      gap: 2px;
     }
 
     body {
@@ -47,6 +55,11 @@ $resultado = $conexao->query($sql);
       justify-content: space-around;
       color: white;
     }
+
+header form{
+  display: flex;
+  gap: 2px;
+}
 
 .table{
   color: white;
@@ -65,9 +78,17 @@ $resultado = $conexao->query($sql);
 
   <header class="navbar bg-dark navbar-dark topo">
     <h1>SISTEMA DE CADASTRO ESCOLAR - 2022 <br> 
-  </h1>
+    </h1>
+  <div>
+    <form class="form-inline" action="listagem_prof.php" method="GET">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+      <button class="btn btn-warning my-2 my-sm-0" type="submit" name="submit">Search</button>
+    </form>
+  </div>
   </header>
+  
   <main>
+  
     <section class="box">
           <table class="table">
         <thead class="thead-dark">
@@ -92,7 +113,6 @@ $resultado = $conexao->query($sql);
             echo "<td>".$professores['disciplina']."</td>";
             echo "</tr>";
           }
-          
           ?>
 
         </tbody>

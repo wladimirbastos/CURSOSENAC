@@ -27,7 +27,6 @@ $resultado = $conexao->query($sql);
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -67,6 +66,7 @@ header form{
       display: flex;
       justify-content: space-around;
       color: white;
+      margin-top: 100px;
     }
 
 .table{
@@ -77,7 +77,7 @@ header form{
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 80vh;
+      height: auto;
     }
   </style>
 </head>
@@ -115,6 +115,8 @@ header form{
             <th scope="col">Nascimento</th>
             <th scope="col">Escolaridade</th>
             <th scope="col">Telefone</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -129,10 +131,12 @@ header form{
             echo "<td>".$alunos['data_nasc']."</td>";
             echo "<td>".$alunos['escolaridade']."</td>";
             echo "<td>".$alunos['telefone']."</td>";
+            echo "<td> <a class='btn btn-sm btn-warning' href='edit.php?id=$alunos[id]'><img src='imagens/pencil-fill.svg'>"."</a></td>";
+            echo "<td> <a class='btn btn-sm btn-danger' href='delete.php?id=$alunos[id]'><img src='imagens/trash-fill.svg'>"."</a></td>";
             echo "</tr>";
           }
           
-          
+                 
           ?>
 
         </tbody>
